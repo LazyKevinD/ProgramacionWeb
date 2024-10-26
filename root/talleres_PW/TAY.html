@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica Script Prototipos</title>
+  <style>
+    .hide {
+      display: none;
+    }
+    .highlight-yellow {
+      background-color: yellow;
+    }
+    .highlight-blue {
+      background-color: blue;
+    }
+    .highlight-red {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Manipulación de DOM con Prototipos</h1>
+
+  <button id="toggleButton">Mostrar/Ocultar Párrafos</button>
+  
+  <hr>
+
+  <p class="paragraph">Este es el párrafo 1.</p>
+  <p class="paragraph">Este es el párrafo 2.</p>
+  <p class="paragraph">Este es el párrafo 3.</p>
+  
+  <hr>
+
+  <button id="highlight1">Resaltar Párrafo 1</button>
+  <button id="highlight2">Resaltar Párrafo 2</button>
+  <button id="highlight3">Resaltar Párrafo 3</button>
+
+  <script src="../scripts/tay.js"></script>
+
+  <script>
+    document.getElementById("toggleButton").on("click", function () {
+      document.querySelectorAll(".paragraph").toggleClass("hide");
+    });
+      
+    function removeHighlights() {
+      document.querySelectorAll(".paragraph").forEach(paragraph => {
+        paragraph.removeClass("highlight-yellow");
+        paragraph.removeClass("highlight-blue");
+        paragraph.removeClass("highlight-red");
+      });
+    }
+
+    document.getElementById("highlight1").on("click", function () {
+      removeHighlights(); 
+      document.querySelector(".paragraph").addClass("highlight-yellow");
+    });
+
+    document.getElementById("highlight2").on("click", function () {
+      removeHighlights(); 
+      document.querySelectorAll(".paragraph")[1].addClass("highlight-blue");
+    });
+
+    document.getElementById("highlight3").on("click", function () {
+      removeHighlights(); 
+      document.querySelectorAll(".paragraph")[2].addClass("highlight-red");
+    });
+  </script>
+</body>
+</html>
