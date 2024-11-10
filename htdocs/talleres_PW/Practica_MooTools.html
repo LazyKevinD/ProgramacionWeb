@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Incluye el archivo JavaScript de la biblioteca MooTools Core -->
+      <script type = "text/javascript" src = "MooTools-Core-1.6.0.js"></script>
+      <!-- Incluye el archivo JavaScript de MooTools More, que añade funcionalidades adicionales -->
+      <script type = "text/javascript" src = "MooTools-More-1.6.0.js"></script>
+      
+      <!-- Aquí empieza el bloque de código JavaScript -->
+      <script type = "text/javascript">
+         // Función que convierte los valores RGB a hexadecimal
+         var rgbToHexa_Demo = function(){
+            // Obtiene el valor del campo de texto con el id 'red' (rojo)
+            var red = $('red').get('value');
+            // Convierte el valor obtenido a un entero
+            var red_value = red.toInt();
+            // Obtiene el valor del campo de texto con el id 'green' (verde)
+            var green = $('green').get('value');
+            // Convierte el valor obtenido a un entero
+            var green_value = green.toInt();
+            // Obtiene el valor del campo de texto con el id 'blue' (azul)
+            var blue = $('blue').get('value');
+            // Convierte el valor obtenido a un entero
+            var blue_value = blue.toInt();
+            // Crea un array con los valores de los colores rojo, verde y azul, y los convierte a formato hexadecimal
+            var color = [red_value, green_value, blue_value].rgbToHex();
+            // Muestra un mensaje de alerta con el color en formato hexadecimal
+            alert("El Color HEXADECIMAL es: " + color);
+         }
+         
+         // Ejecuta una función cuando el DOM está completamente cargado
+         window.addEvent('domready', function() {
+            // Agrega un evento al botón con el id 'rgbtohex' que llama a la función rgbToHexa_Demo cuando se hace clic
+            $('rgbtohex').addEvent('click', rgbToHexa_Demo);
+         });
+      </script>
+   </head>
+   
+   <body>
+     <!-- Campo de texto para ingresar el valor del color rojo -->
+     Valor del Color Rojo: <input type = "text" id = "red" /><br/><br/>
+     <!-- Campo de texto para ingresar el valor del color verde -->
+      Valor del color Verde: <input type = "text" id = "green" /><br/><br/>
+      <!-- Campo de texto para ingresar el valor del color azul -->
+      Valor del Color Azul: <input type = "text" id = "blue" /><br/><br/>
+      <!-- Botón que al hacer clic ejecuta la conversión de los valores RGB a hexadecimal -->
+      <input type = "button" id = "rgbtohex" value = "RGB A Hexadecimal"/>
+
+
+   <!-- 
+      
+   Se incluyen dos archivos de la librería MooTools, que es un framework JavaScript
+    similar a jQuery que facilita la manipulación del DOM y otros aspectos de JavaScript.
+
+    El código define una función rgbToHexa_Demo que toma los valores de los campos de entrada 
+    (rojo, verde y azul), los convierte a números enteros, y luego los transforma a un color en formato hexadecimal.
+   Cuando el documento está listo (domready), se agrega un evento "click" al botón.
+    Al hacer clic en el botón, se ejecuta la función que muestra una alerta con el color hexadecimal generado.
+   
+   
+   
+   -->
+
+
+   </body>
+</html>
+
+
